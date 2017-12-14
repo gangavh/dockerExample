@@ -35,7 +35,7 @@ node {
          }
       }
 
-	stage 'Stage image' {
+	stage ('Stage image') {
 		//Deploy image to staging in ECS
 		def buildenv = docker.image('savindra/devopsrobo')
 		buildenv.inside {
