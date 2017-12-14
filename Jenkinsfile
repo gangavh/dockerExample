@@ -37,7 +37,7 @@ node {
 
 	stage ('Stage image') {
 		//Deploy image to staging in ECS
-		def buildenv = docker.image('savindra/devopsrobo')
+		def buildenv = docker.image('cloudbees/java-build-tools:0.0.7.1')
 		buildenv.inside {
 			wrap([$class: 'AmazonAwsCliBuildWrapper', credentialsId: 'AKIAIZZJ2X23N7BCK4OA', defaultRegion: 'eu-central-1']) {
 				sh "aws ecs update-service --service staging-devopsrobo  --cluster staging --desired-count 0"
