@@ -35,7 +35,7 @@ node {
          }
       }
 
-	stage 'Stage image'
+	stage 'Stage image' {
 	//Deploy image to staging in ECS
 	def buildenv = docker.image('savindra/devopsrobo')
   buildenv.inside {
@@ -78,5 +78,5 @@ node {
         }
         echo "devopsrobo#${env.BUILD_NUMBER} SUCCESSFULLY deployed to http://52.200.92.100:80"
         input 'Does staging http://52.200.92.100:80 look okay?'
- 
+	}
 }
